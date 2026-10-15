@@ -8,7 +8,6 @@ leaking into chunk render_text. Two leak paths to cover:
 2. The cached value is None (uncached array formula — cluster-03
    adjacent; we still must not emit the object repr).
 
-Reference: docs/planning/recall-90/01-array-formula-rendering.md
 """
 from __future__ import annotations
 

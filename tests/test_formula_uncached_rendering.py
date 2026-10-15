@@ -6,7 +6,6 @@ None). The renderer must NOT emit `None` or an empty grid cell — it
 must surface the formula source string so retrieval has something to
 match against.
 
-Reference: docs/planning/recall-90/03-cell-drop-or-uncached-formula.md
 """
 from __future__ import annotations
 

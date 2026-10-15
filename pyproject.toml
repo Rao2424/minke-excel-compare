@@ -5,46 +5,17 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "excel-parser"
 version = "0.2.1"
-description = "Production-grade Excel Workflow Parser for RAG + auditability systems"
+description = "Excel parsing for custom workbook workflows"
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.10"
-authors = [
-    {name = "Excel Parser Contributors"}
-]
-keywords = [
-    "excel",
-    "xlsx",
-    "parser",
-    "rag",
-    "workbook",
-    "spreadsheet",
-    "extraction",
-]
-classifiers = [
-    "Development Status :: 4 - Beta",
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Topic :: Office/Business :: Financial :: Spreadsheet",
-]
 dependencies = [
     "openpyxl>=3.1.0",
     "pydantic>=2.0",
     "lxml>=4.9.0",
     "xxhash>=3.0.0",
-    "tiktoken>=0.5.0",
     "xlrd>=2.0.0",  # legacy .xls (BIFF) reader; converted to .xlsx in-memory
 ]
-
-[project.urls]
-Homepage = "https://github.com/knowledgestack/excel-parser"
-Repository = "https://github.com/knowledgestack/excel-parser"
-Documentation = "https://github.com/knowledgestack/excel-parser#readme"
 
 [project.scripts]
 excel-parser-api = "excel_parser.api:main"
@@ -65,12 +36,6 @@ dev = [
     "ruff>=0.6.0",
     "mypy>=1.0",
     "xlwt>=1.3.0",  # writes legacy .xls fixtures for the converter tests
-]
-# Retrieval-recall benchmark (scripts/eval_retrieval.py). Heavy — only the
-# benchmark Docker image and `make bench-retrieval` need these.
-bench = [
-    "sentence-transformers>=2.2.0",
-    "numpy>=1.24.0",
 ]
 
 [tool.pytest.ini_options]
@@ -96,7 +61,7 @@ excel_parser = ["py.typed"]
 [tool.ruff]
 line-length = 110
 target-version = "py310"
-extend-exclude = ["examples/stress_test", "dist", "build"]
+extend-exclude = ["dist", "build"]
 
 [tool.ruff.lint]
 select = [
@@ -116,4 +81,3 @@ ignore = [
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["B011", "B017"]
-"scripts/**" = ["B008"]

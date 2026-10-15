@@ -34,6 +34,8 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
+.ruff_cache/
+.mypy_cache/
 cover/
 .env
 .venv
@@ -48,33 +50,8 @@ ENV/
 .DS_Store
 tests/fixtures/corpus/
 
-# Corpus & metrics outputs
-metrics/corpus/
-metrics/corpus_summary.json
-
-# Generated stress test artifacts
-examples/stress_test/stress_results.json
-examples/stress_test/built_reference.json
-examples/stress_test/STRESS_TEST_RESULTS.md
-
-# Local benchmark harness (private, not pushed) — run outputs stay private,
-# except the curated comparison the README links to.
-tests/benchmarks/reports/*
-!tests/benchmarks/reports/COMPARISON.md
-tests/benchmarks/hucre_node/node_modules/
-tests/benchmarks/hucre_node/.pnpm-store/
-
 # Rust / cargo build artifacts — never commit
 rust/**/target/
 rust/**/Cargo.lock.bak
 **/.cargo-lock
 **/.fingerprint/
-
-# Downloaded benchmark corpora (see scripts/download_corpora.sh)
-data/corpora/
-
-# Internal planning notes (kept locally, not published to the open-source repo)
-docs/planning/
-
-# Conductor / Claude Code transient state
-.claude/
